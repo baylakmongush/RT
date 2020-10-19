@@ -40,6 +40,7 @@ int             main()
     	}
         SDL_RenderClear(rt_struct.renderer);
         SDL_RenderCopy(rt_struct.renderer, rt_struct.texture, NULL, NULL);
+        SDL_RenderCopy(rt_struct.renderer, rt_struct.background, NULL, NULL);
         SDL_RenderPresent(rt_struct.renderer);
 	}
     clFinish(cl.commands);

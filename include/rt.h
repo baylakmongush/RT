@@ -19,6 +19,7 @@
 # define SCREEN_WIDTH	800
 # include "SDL2/SDL.h"
 # include <unistd.h>
+#include "SDL2/SDL_image.h"
 
 typedef struct			s_fractol
 {
@@ -27,6 +28,7 @@ typedef struct			s_fractol
 	SDL_Renderer		*renderer;
 	SDL_Surface			*surface;
 	SDL_Texture			*texture;
+	SDL_Texture			*background;
 	Uint32				*pixels;
 	int					is_running;
 }						t_rt;
