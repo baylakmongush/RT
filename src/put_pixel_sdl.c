@@ -9,13 +9,15 @@
 
 #include "rt.h"
 
+int		get_color(t_color color)
+{
+	return (color.r << 16) | (color.g << 8) | color.b;
+}
+
 void    put_pixel_sdl(t_rt rt_struct, int x, int y, t_color color)
 {
     if (x > 0 && x <= SCREEN_WIDTH && y > 0 && y <= SCREEN_HEIGHT)
     {
-        ((unsigned char*)rt_struct.surface->pixels)[4 * (y * rt_struct.surface->w + x) + 0] = color.b;
-        ((unsigned char*)rt_struct.surface->pixels)[4 * (y * rt_struct.surface->w + x) + 1] = color.g;
-        ((unsigned char*)rt_struct.surface->pixels)[4 * (y * rt_struct.surface->w + x) + 2] = color.r;
-        ((unsigned char*)rt_struct.surface->pixels)[4 * (y * rt_struct.surface->w + x) + 3] = 1;
+        rt_struct.pixels[y * SCREEN_WIDTH + x] = get_color(color);
     }
 }

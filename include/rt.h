@@ -21,7 +21,34 @@
 # include <unistd.h>
 #include "SDL2/SDL_image.h"
 
-typedef struct			s_fractol
+// typedef struct 			s_ray
+// {
+// 	t_point3			origin;
+// 	t_vector3			dir;
+// }						t_ray;
+
+// typedef struct			s_point3
+// {
+// 	float				x;
+// 	float				y;
+// 	float				z;
+// }						t_point3;
+
+// typedef struct			s_vector3
+// {
+// 	float				x;
+// 	float				y;
+// 	float				z;
+// }						t_vector3;
+
+typedef struct			s_color
+{
+	unsigned char		r;
+	unsigned char		g;
+	unsigned char		b;
+}						t_color;
+
+typedef struct			s_rt
 {
 	SDL_Window			*win;
 	SDL_Event			event;
@@ -32,13 +59,6 @@ typedef struct			s_fractol
 	Uint32				*pixels;
 	int					is_running;
 }						t_rt;
-
-typedef struct			s_color
-{
-	unsigned char		r;
-	unsigned char		g;
-	unsigned char		b;
-}						t_color;
 
 typedef struct			s_cl
 {
@@ -52,8 +72,8 @@ typedef struct			s_cl
 	char				*rt;
 }						t_cl;
 
-t_rt				init_sdl();
-void    				put_pixel_sdl(t_rt fract, int x, int y, t_color color);
+t_rt					init_sdl();
+void					put_pixel_sdl(t_rt rt_struct, int x, int y, t_color color);
 void					destroy_sdl(t_rt fract);
 t_cl					init_cl();
 
